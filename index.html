@@ -3,21 +3,20 @@
   <head>
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/favicon.ico" />
-    <link rel="stylesheet" href="style.css">
+    <!-- <link rel="stylesheet" href="style.css"> -->
+    <link rel="stylesheet" href="output.css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Codex :: Your Coding AI</title>
+    <title>OpenAI Text Generator</title>
   </head>
-  <body>
-    <div id="app">
-      <form>
-        <textarea name="prompt" rows="1"  cols="1" placeholder="Go ahead, ask me a question I dare you..."></textarea>
-        <button type="submit">
-          <img src="assets/send.svg" alt="send" />
-        </button>
+  <body class="bg-body">
+    <div id="app" class="w-screen h-screen bg-gray-700 flex flex-col items-center justify-between">
+      <form class="bg-body w-full max-w-7xl my-1 mr-auto ml-auto p-2.5 flex flex-row gap-2.5">
+        <textarea class="w-full text-base text-white p-2.5 bg-transparent rounded-md border-0 outline-0" name="prompt" rows="1"  cols="1" placeholder="Go ahead, ask me a question I dare you..."></textarea>
+        <button type="submit" class="bg-user text-base border rounded border-solid font-mono py-0 px-3 text-white hover:bg-submit_hover active:bg-submit_active">Submit</button>
       </form>
-      <div id="chat_container" class="border-b-1"></div>
+      <div id="chat_container" class="flex w-full h-full overflow-y-scroll flex-col gap-2.5 scroll-smooth border-t border-gray-400 flex-initial"></div>
     </div>
-    <div id="code-links">
+    <div class="absolute bottom-0 w-full bg-white text-black p-1.5 text-center">
       Code for <a href="https://github.com/zedaenious/openai-textgen-client/tree/master" target="_blank">Client</a> and <a href="https://github.com/zedaenious/openai-textgen-server/tree/master" target="_blank">Server</a> on Github.
     </div>
     <script type="module" src="/script.js"></script>

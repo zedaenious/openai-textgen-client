@@ -3,19 +3,18 @@ import user from './assets/user.svg';
 
 const form = document.querySelector('form');
 const chat_container = document.querySelector('#chat_container');
-
 let loadInterval;
-
 
 function loader(element) {
   element.textContent = '';
+  
   loadInterval = setInterval(() => {
     element.textContent += '.';
-
-    if(element.textContent === '....'){
+    if(element.textContent === '......'){
       element.textContent = '';
     }
-  }, 300 );
+  }, 200 );
+
   return '...';
 }
 
@@ -28,7 +27,7 @@ function typeText(element, text) {
     } else {
       clearInterval(interval);
     }
-  }, 10 );
+  }, 2 );
 }
 
 function generateUniqueId() {
@@ -42,12 +41,12 @@ function generateUniqueId() {
 function chatStripe(isAi, value, uniqueId) {
   return (
     `
-      <div class="wrapper ${isAi ? 'ai' : 'user'}">
-        <div class="chat">
-          <div class="profile">
+      <div class="w-full p-3.5 ${isAi ? 'ai bg-ai' : 'user'}">
+        <div class="chat w-full max-w-7xl mt-0 mb-0 ml-auto mr-auto flex flex-row items-start gap-2.5">
+          <div class="bg-user w-8 h-8 rounded flex justify-center items-center">
             <img src="${isAi ? bot : user}" alt="${isAi ? 'bot' : 'user'}"/>
           </div>
-          <div class="message" id="${uniqueId}">
+          <div class="${isAi && 'whitespace-pre-wrap'} message flex-1 max-w-full overflow-x-scroll font-sans text-base" id="${uniqueId}">
             ${value}
           </div>
         </div>
