@@ -76,7 +76,7 @@ const handleSubmit = async (e) => {
 
   loader(messageDiv);
 
-  const response = await fetch('https://openai-textgen-server.vercel.app/api/', {
+  const response = await fetch('https://openai-textgen-server.vercel.app', {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
